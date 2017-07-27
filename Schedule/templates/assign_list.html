@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>Assignments</h2>
+    <ul>
+
+            <table style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Engagement Description</th>
+                    <th>Week of</th>
+                    <th>Hours</th>
+                </tr>
+                {% for assignment in object_list %}
+                <tr>
+                    <td>{{ assignment.assignment_resource }}</td>
+                    <td>{{ assignment.assignment_engagement }}</td>
+                    <td>{{ assignment.assignment_week }}</td>
+                    <td>{{ assignment.assignment_hours }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    </ul>
+{% endblock body %}

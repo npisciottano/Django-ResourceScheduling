@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>Resources</h2>
+    <ul>
+
+            <table style="width:100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Level</th>
+                    <th>Firm</th>
+                    <th>Group</th>
+                </tr>
+                {% for resource in object_list %}
+                <tr>
+                    <td>{{ resource.resourceID }}</td>
+                    <td>{{ resource.resource_name }}</td>
+                    <td>{{ resource.resource_level }}</td>
+                    <td>{{ resource.resource_firm}}</td>
+                    <td>{{ resource.resource_group }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+    </ul>
+{% endblock body %}
+

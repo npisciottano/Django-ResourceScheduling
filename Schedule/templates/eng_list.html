@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>Clients</h2>
+    <ul>
+
+            <table style="width:100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Client Name</th>
+                    <th>Engagement Description</th>
+                     <th>Engagement Code</th>
+                </tr>
+                {% for engagement in object_list %}
+                <tr>
+                    <td>{{ engagement.engagementID }}</td>
+                    <td>{{ engagement.clientID }}</td>
+                    <td>{{ engagement.engagement_description }}</td>
+                    <td>{{ engagement.engagement_code }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    </ul>
+{% endblock body %}
