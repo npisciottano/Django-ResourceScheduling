@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from Schedule.models import engagement, assignment, resource, client
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
+
 
 # Create your views here.
 def index(request):
@@ -22,6 +22,7 @@ class ResourceList(ListView):
 
 class ClientList(ListView):
     model = client
+    fields = ['client_name', 'client_industry', 'client_location']
     template_name = 'client_list.html'
 
 def schedule(request):
@@ -29,11 +30,11 @@ def schedule(request):
 
 class ResourceCreate(CreateView):
     model = resource
-    fields = ['resourceID', 'resource_name', 'resource_level', 'resource_firm', 'resource_group']
+    fields = ['resource_name', 'resource_level', 'resource_firm', 'resource_group']
 
 class EngagementCreate(CreateView):
     model = engagement
-    fields = ['engagementID', 'clientID', 'engagement_description', 'engagement_code']
+    fields = ['clientID', 'engagement_description', 'engagement_code']
 
 class AssignmentCreate(CreateView):
     model = assignment
@@ -41,12 +42,12 @@ class AssignmentCreate(CreateView):
 
 class ClientCreate(CreateView):
     model = client
-    fields = ['clientID', 'client_name', 'client_industry', 'client_location']
+    fields = ['client_name', 'client_industry', 'client_location']
 
 class ClientEdit(UpdateView):
     model = client
-    fields = ['clientID', 'client_name', 'client_industry', 'client_location']
-
+    fields = ['client_name', 'client_industry', 'client_location']
+    template_name_suffix = '_update_form'
 
 
 #Building client+engagement view

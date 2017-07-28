@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^engagement/add/$', views.EngagementCreate.as_view(success_url='/engagements/'), name='engagement-add'),
     url(r'^assignment/add/$', views.AssignmentCreate.as_view(success_url='/assignments/'), name='assignment-add'),
     url(r'^client/add/$', views.ClientCreate.as_view(success_url='/clients/'), name='client-add'),
+    url(r'^client/(?P<pk>.+)/$', views.ClientEdit.as_view(success_url='/clients/'), name='client-edit'),
  ]
